@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    wsWorker:
+        image: kolyadin/workerman
+        container_name: wsWorker
+        restart: always
+        network_mode: host
+        volumes:
+            - ./:/soft/GatewayWorker
+        command: php /soft/GatewayWorker/start.php start
+        ports:
+            - 8282:8282
+        
